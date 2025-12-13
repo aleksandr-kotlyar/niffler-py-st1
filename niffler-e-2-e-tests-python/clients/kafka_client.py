@@ -22,11 +22,11 @@ class KafkaClient:
             {"bootstrap.servers": f"{self.server}:9092"}
         )
         self.producer = Producer(
-            {"bootstrap.servers": f"{self.server}:9092"}
+            {"bootstrap.servers": f"{self.server}:9093"}
         )
         self.consumer = Consumer(
             {
-                "bootstrap.servers": f"localhost:9093",
+                "bootstrap.servers": f"{self.server}:9093",
                 "group.id": group_id,
                 "client.id": client_id,
                 "auto.offset.reset": "latest",
@@ -39,7 +39,6 @@ class KafkaClient:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.consumer.close()
         self.producer.flush()
 
     def list_topics_names(self, attempts: int = 5):

@@ -18,9 +18,9 @@ class AuthSession(Session):
 
     def request(self, method, url, **kwargs):
         response = super().request(method, url, **kwargs)
-        print(curlify.to_curl(response.request))
-        print(response.text)
-        print(response.headers)
+        logging.info(curlify.to_curl(response.request))
+        logging.info(response.text)
+        logging.info(response.headers)
         for r in response.history:
             cookies = r.cookies.get_dict()
             self.cookies.update(cookies)

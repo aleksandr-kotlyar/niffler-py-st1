@@ -15,7 +15,7 @@ else
   front_image="${IMAGE_PREFIX}/${FRONT_IMAGE_NAME}-${PROFILE}:latest";
 fi
 
-FRONT_IMAGE="$front_image" PREFIX="${IMAGE_PREFIX}" PROFILE="${PROFILE}" docker-compose down
+FRONT_IMAGE="$front_image" PREFIX="${IMAGE_PREFIX}" PROFILE="${PROFILE}" docker compose down
 
 docker_containers="$(docker ps -a -q)"
 docker_images="$(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'niffler')"
@@ -44,5 +44,5 @@ fi
 
 cd ../
 docker images
-FRONT_IMAGE="$front_image" PREFIX="${IMAGE_PREFIX}" PROFILE="${PROFILE}" docker-compose up -d
+FRONT_IMAGE="$front_image" PREFIX="${IMAGE_PREFIX}" PROFILE="${PROFILE}" docker compose up -d
 docker ps -a

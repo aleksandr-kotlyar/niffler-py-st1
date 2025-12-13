@@ -76,6 +76,7 @@ class KafkaClient:
         return msg
 
     def subscribe_listen_new_offsets(self, topic):
+        logging.info("subscribe")
         self.consumer.subscribe([topic])
         p_ids = self.consumer.list_topics(topic).topics[topic].partitions.keys()
         partitions_offsets_event = {k: self.get_last_offset(topic, k) for k in p_ids}

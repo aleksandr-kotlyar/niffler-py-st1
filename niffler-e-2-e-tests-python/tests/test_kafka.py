@@ -21,7 +21,7 @@ class TestAuthRegistrationKafkaTest:
                 result = auth_client.register(username, password)
                 assert result.status_code == 201
 
-                event = kafka.log_msg_and_json(topic_partitions)
+                event = kafka.consume_message(topic_partitions)
 
                 with step("Check that message from kafka exist"):
                         assert event != '' and event != b''

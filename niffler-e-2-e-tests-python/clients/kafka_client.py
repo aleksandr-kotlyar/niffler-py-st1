@@ -69,11 +69,6 @@ class KafkaClient:
         except Exception as err:
             logging.error("probably no such topic: %s: %s", topic, err)
 
-    def log_msg_and_json(self, topic_partitions):
-        msg = self.consume_message(topic_partitions, timeout=25)
-        logging.info(msg)
-        return msg
-
     def subscribe_listen_new_offsets(self, topic):
         logging.info("subscribe")
         self.consumer.subscribe([topic])

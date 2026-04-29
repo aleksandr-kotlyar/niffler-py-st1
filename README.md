@@ -1,3 +1,15 @@
+# niffler-py-st1
+
+qa.guru Python teaching project and classroom automation framework.
+
+This repository was used for teaching QA automation practices at qa.guru.
+It contains staged examples for demonstrating test architecture, pytest fixtures,
+test data preparation, API/UI automation patterns, and CI/CD integration.
+
+## Purpose
+
+This project is intended as educational and workshop material, not as a production framework.
+
 ## **Технологии, использованные в Niffler**
 
 - [Spring Authorization Server](https://spring.io/projects/spring-authorization-server)
